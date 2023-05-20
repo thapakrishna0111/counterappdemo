@@ -6,5 +6,16 @@ pipeline{
            git branch: 'main', url: 'https://github.com/thapakrishna0111/counter-app.git'
         }
       }
+      stage('UNIT Testing'){
+        steps{
+           sh 'mvn test'
+        }
+      }
+      stage('UNIT Testing'){
+        steps{
+           sh 'mvn test'
+        }
+      }
+
     }
 }

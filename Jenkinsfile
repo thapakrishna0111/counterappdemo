@@ -16,6 +16,14 @@ pipeline{
            sh 'mvn verify -DskipUnitTests'
         }
       }
-
+       stage('SonarQube Analysis'){
+        steps{
+           script {
+             withSonarQubeEnv(credentialsId: 'sonar-auth') {
+             sh 'mvn clean package sonar:sonar'
+             }
+           }
+        }
+      }
     }
 }

@@ -9,6 +9,12 @@ pipeline{
           git branch: 'main', url: 'https://github.com/thapakrishna0111/counterappdemo.git'
         }
       }
+      stage('UNIT Testing'){
+        steps{
+           sh 'mvn test'
+        }
+      }
+
 
   }
 }

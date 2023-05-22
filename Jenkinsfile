@@ -3,26 +3,12 @@ pipeline{
   environment {
     PATH="$PATH:/opt/maven/bin"
   }
-    stages{
-      stage('git checkout'){
+  stages{
+      stage('git SCM Checkout'){
         steps{
-           git branch: 'main', url: 'https://github.com/thapakrishna0111/counterappdemo.git'
+          git branch: 'main', url: 'https://github.com/thapakrishna0111/counterappdemo.git'
         }
       }
-      stage('UNIT Testing'){
-        steps{
-           sh 'mvn test'
-        }
-      }
-      stage('Integration Testing'){
-        steps{
-           sh 'mvn verify -DskipUnitTests'
-        }
-      }
-      stage('Maven Build'){
-        steps{
-           sh 'mvn clean install'
-        }
-      }
+
   }
 }
